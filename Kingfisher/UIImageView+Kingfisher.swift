@@ -267,7 +267,11 @@ public extension UIImageView {
                 return
             } else {
                 if newValue {
+                    #if os(iOS)
                     let indicator = UIActivityIndicatorView(activityIndicatorStyle:.Gray)
+                    #else
+                    let indicator = UIActivityIndicatorView(activityIndicatorStyle:.White)
+                    #endif
                     indicator.center = center
                     indicator.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
                     indicator.hidden = true
